@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:vakinha_burger/app/core/ui/widgets/delivery_button.dart';
+
+import '../../core/core/config/env.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({super.key});
@@ -17,7 +20,13 @@ class SplashPage extends StatelessWidget {
               onPressed: () {},
               child: const Text('My elevated button'),
             ),
-            TextFormField()
+            TextFormField(),
+            DeliveryButton(
+              width: 200,
+              height: 100,
+              label: Env.instance['backend_base_url'] ?? '',
+              onPressed: () {},
+            ),
           ],
         ),
       ),
