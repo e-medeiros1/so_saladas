@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:dio/native_imp.dart';
 
-import '../core/config/env.dart';
+import '../config/env.dart';
 
 class CustomDio extends DioForNative {
   CustomDio()
