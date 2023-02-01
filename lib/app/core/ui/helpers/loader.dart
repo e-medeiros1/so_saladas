@@ -3,7 +3,7 @@ import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 mixin Loader<T extends StatefulWidget> on State<T> {
   var isOpen = false;
-  void showLoader() {
+   showLoader() {
     if (!isOpen) {
       isOpen = true;
       showDialog(
@@ -13,7 +13,7 @@ mixin Loader<T extends StatefulWidget> on State<T> {
     }
   }
 
-  void hideLoader() {
+   hideLoader() {
     if (isOpen) {
       isOpen = false;
       Navigator.of(context).pop();

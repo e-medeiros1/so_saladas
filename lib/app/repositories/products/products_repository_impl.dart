@@ -5,12 +5,11 @@ import 'package:dio/dio.dart';
 import 'package:vakinha_burger/app/core/rest_client/custom_dio.dart';
 import 'package:vakinha_burger/app/models/product_model.dart';
 
-import '../../core/exceptions/repository_exception.dart';
 import './products_repository.dart';
+import '../../core/exceptions/repository_exception.dart';
 
 class ProductsRepositoryImpl implements ProductsRepository {
   final CustomDio dio;
-
   ProductsRepositoryImpl({
     required this.dio,
   });
@@ -23,7 +22,7 @@ class ProductsRepositoryImpl implements ProductsRepository {
           .map<ProductModel>((p) => ProductModel.fromMap(p))
           .toList();
     } on DioError catch (e, s) {
-      log('Erro ao buscar produtos', error: e, stackTrace: s);
+      log('Erro ao buscar produtos / Dio', error: e, stackTrace: s);
       throw RepositoryException(message: 'Erro ao buscar produtos');
     }
   }
