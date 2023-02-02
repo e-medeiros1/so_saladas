@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vakinha_burger/app/core/ui/widgets/delivery_appbar.dart';
 import 'package:vakinha_burger/app/pages/home/home_state.dart';
 import 'package:vakinha_burger/app/pages/home/widgets/delivery_products_tile.dart';
+import 'package:vakinha_burger/app/pages/home/widgets/delivery_shopping_bag.dart';
 
 import '../../core/ui/base_state/base_state.dart';
 import 'home_controller.dart';
@@ -57,6 +58,10 @@ class _HomePageState extends BaseState<HomePage, HomeController> {
                     );
                   },
                 ),
+              ),
+              Visibility(
+                visible: state.shoppingBag.isNotEmpty,
+                child: DeliveryShoppingBag(bag: state.shoppingBag),
               ),
             ],
           );
