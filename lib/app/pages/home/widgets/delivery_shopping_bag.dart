@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vakinha_burger/app/core/extensions/formatter_extensions.dart';
 import 'package:vakinha_burger/app/core/ui/helpers/size_extensions.dart';
 import 'package:vakinha_burger/app/core/ui/styles/text_styles.dart';
@@ -11,6 +12,14 @@ class DeliveryShoppingBag extends StatelessWidget {
     Key? key,
     required this.bag,
   }) : super(key: key);
+
+  Future<void> _goOrder(BuildContext context) async {
+    final navigator = Navigator.of(context);
+    final sp = await SharedPreferences.getInstance();
+    if (!sp.containsKey('accessToken')) {
+      final loginResult = await navigator.pushNamed('/auth/login');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +38,9 @@ class DeliveryShoppingBag extends StatelessWidget {
             topLeft: Radius.circular(10), topRight: Radius.circular(10)),
       ),
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          _goOrder(context);
+        },
         child: Stack(
           children: [
             const Align(
