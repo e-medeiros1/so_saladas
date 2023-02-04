@@ -9,7 +9,7 @@ class ProductModel {
   final String description;
   final double price;
   final String image;
-  
+
   ProductModel({
     required this.id,
     required this.name,
@@ -30,15 +30,16 @@ class ProductModel {
 
   factory ProductModel.fromMap(Map<String, dynamic> map) {
     return ProductModel(
-      id: map['id'] as int,
-      name: map['name'] as String,
-      description: map['description'] as String,
-      price: map['price'] as double,
-      image: map['image'] as String,
+      id: map['id'] ?? 0,
+      name: map['name'] ?? '',
+      description: map['description'] ?? '',
+      price: map['price'] ?? 0.0,
+      image: map['image'] ?? '',
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory ProductModel.fromJson(String source) => ProductModel.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory ProductModel.fromJson(String source) =>
+      ProductModel.fromMap(json.decode(source) as Map<String, dynamic>);
 }

@@ -13,6 +13,7 @@ class ThemeConfig {
   );
 
   static final theme = ThemeData(
+    fontFamily: 'mplus1',
     scaffoldBackgroundColor: Colors.white,
     appBarTheme: const AppBarTheme(
       backgroundColor: Colors.white,
@@ -36,7 +37,8 @@ class ThemeConfig {
       border: _defaultInputBorder,
       enabledBorder: _defaultInputBorder,
       focusedBorder: _defaultInputBorder,
-      errorStyle: TextStyles.instance.textRegular.copyWith(color: Colors.redAccent),
+      errorStyle:
+          TextStyles.instance.textRegular.copyWith(color: Colors.redAccent),
     ),
   );
 }
