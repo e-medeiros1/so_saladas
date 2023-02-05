@@ -1,10 +1,14 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vakinha_burger/app/core/extensions/formatter_extensions.dart';
 import 'package:vakinha_burger/app/core/ui/helpers/size_extensions.dart';
 import 'package:vakinha_burger/app/core/ui/styles/text_styles.dart';
 import 'package:vakinha_burger/app/dto/order_product_dto.dart';
+import 'package:vakinha_burger/app/pages/order/order_controller.dart';
+
+import '../home_controller.dart';
 
 class DeliveryShoppingBag extends StatelessWidget {
   final List<OrderProductDto> bag;
@@ -14,13 +18,16 @@ class DeliveryShoppingBag extends StatelessWidget {
   }) : super(key: key);
 
   Future<void> _goOrder(BuildContext context) async {
+    final controller = context.read<HomeController>();
+
     final navigator = Navigator.of(context);
     final sp = await SharedPreferences.getInstance();
     if (!sp.containsKey('accessToken')) {
       final loginResult = await navigator.pushNamed('/auth/login');
       if (loginResult == null || loginResult == false) return;
     }
-    await navigator.pushNamed('/order', arguments: bag);
+    final updatedBag = await navigator.pushNamed('/order', arguments: bag);
+    controller.updateBag(updatedBag as List<OrderProductDto>);
   }
 
   @override

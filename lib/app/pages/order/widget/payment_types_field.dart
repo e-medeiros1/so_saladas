@@ -1,10 +1,22 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_awesome_select/flutter_awesome_select.dart';
 import 'package:vakinha_burger/app/core/ui/helpers/size_extensions.dart';
 import 'package:vakinha_burger/app/core/ui/styles/text_styles.dart';
+import 'package:vakinha_burger/app/models/payment_model.dart';
 
 class PaymentTypesField extends StatelessWidget {
-  const PaymentTypesField({super.key});
+  final ValueChanged<int> valueChanged;
+  final List<PaymentModel> paymentTypes;
+  final bool valid;
+  final String valueSelected;
+  const PaymentTypesField({
+    Key? key,
+    required this.valueChanged,
+    required this.paymentTypes,
+    required this.valid,
+    required this.valueSelected,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +31,11 @@ class PaymentTypesField extends StatelessWidget {
           ),
           SmartSelect<String>.single(
             title: 'Formas de pagamento',
-            selectedValue: '',
+            selectedValue: valueSelected,
             modalType: S2ModalType.bottomSheet,
-            onChange: (value) {},
+            onChange: (selected) {
+              valueChanged(int.parse(selected.value));
+            },
             tileBuilder: (context, state) {
               return InkWell(
                 onTap: state.showModal,
@@ -43,17 +57,34 @@ class PaymentTypesField extends StatelessWidget {
                         ],
                       ),
                     ),
+                    Visibility(
+                      visible: !valid,
+                      child: const Divider(
+                        color: Colors.red,
+                      ),
+                    ),
+                    Visibility(
+                      visible: !valid,
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 8.0),
+                        child: Text(
+                          'Selecione uma forma de pagamento',
+                          style: context.textStyles.textRegular
+                              .copyWith(color: Colors.red, fontSize: 13),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               );
             },
             choiceItems: S2Choice.listFrom<String, Map<String, String>>(
-              source: [
-                {'value': 'VA', 'title': 'Vale Alimentação'},
-                {'value': 'VR', 'title': 'Vale Refeição'},
-                {'value': 'CC', 'title': 'Cartão de Crédito'},
-                {'value': 'CD', 'title': 'Cartão de Débito'},
-              ],
+              source: paymentTypes
+                  .map((p) => {
+                        'value': p.id.toString(),
+                        'title': p.name,
+                      })
+                  .toList(),
               title: (index, item) => item['title'] ?? '',
               value: (index, item) => item['value'] ?? '',
               group: (index, item) => 'Meios de pagamento disponíveis:',

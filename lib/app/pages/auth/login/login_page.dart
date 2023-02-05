@@ -79,6 +79,7 @@ class _LoginPageState extends BaseState<LoginPage, LoginController>
                         ),
                         const SizedBox(height: 30),
                         TextFormField(
+                          obscureText: true,
                           controller: passwordEC,
                           decoration: const InputDecoration(labelText: 'Senha'),
                           validator: Validatorless.multiple([

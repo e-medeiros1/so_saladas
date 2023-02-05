@@ -11,4 +11,14 @@ class OrderProductDto {
   });
 
   double get totalPrice => amount * productModel.price;
+
+  OrderProductDto copyWith({
+    ProductModel? productModel,
+    int? amount,
+  }) {
+    return OrderProductDto(
+      productModel: productModel ?? this.productModel,
+      amount: amount ?? this.amount,
+    );
+  }
 }
