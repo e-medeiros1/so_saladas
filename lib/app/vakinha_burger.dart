@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vakinha_burger/app/core/global/global_context.dart';
 import 'package:vakinha_burger/app/core/provider/application_binding.dart';
 import 'package:vakinha_burger/app/core/ui/theme/theme_config.dart';
 import 'package:vakinha_burger/app/pages/auth/login/login_router.dart';
@@ -11,7 +12,10 @@ import 'pages/auth/register/register_router.dart';
 import 'pages/order/order_router.dart';
 
 class VakinhaBurger extends StatelessWidget {
-  const VakinhaBurger({super.key});
+  final _navKey = GlobalKey<NavigatorState>();
+  VakinhaBurger({super.key}) {
+    GlobalContext.instance.navigatorKey = _navKey;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +24,7 @@ class VakinhaBurger extends StatelessWidget {
         title: 'Vakinha Burger',
         debugShowCheckedModeBanner: false,
         theme: ThemeConfig.theme,
+        navigatorKey: _navKey,
         routes: {
           '/': (context) => const SplashPage(),
           '/home': (context) => HomeRouter.page,
