@@ -27,12 +27,15 @@
 <h2> Telas </h2>  
 <p> Splash page </p> 
 <img src="https://user-images.githubusercontent.com/73318684/217089193-3c931838-c728-4d9f-965a-d5849e8fff18.png" width="250" alt="Logo SplashPage"/>   
-<p> HomePage </p>     
+<p> Home Page </p>     
 <img src="https://user-images.githubusercontent.com/73318684/217089270-9c6c76a0-776e-43e5-bc3d-324f5cd36385.png" width="250" alt="Logo TaskPage"/> 
-<p> Order page </p>     
-<img src="https://user-images.githubusercontent.com/73318684/217089334-f959bb0c-e124-4c64-aab3-ba70c07a099c.png" width="250" alt="Logo Order"/> 
 <p> Product detail </p>     
 <img src="https://user-images.githubusercontent.com/73318684/217089396-ca50c0f4-2a40-4d1e-8bf5-e99693258626.png" width="250" alt="Logo ProductPage"/> 
+<p> Order page </p>     
+<img src="https://user-images.githubusercontent.com/73318684/217089334-f959bb0c-e124-4c64-aab3-ba70c07a099c.png" width="250" alt="Logo Order"/> 
+<p> Final page </p>     
+<img src="https://user-images.githubusercontent.com/73318684/217090777-c198ba6a-f9f0-404b-9e6e-63355f59ce68.png" width="250" alt="Logo Final"/> 
+
 
 <h2> Como usar </h2>
 <h3> Disponível para windows e android </h3>
