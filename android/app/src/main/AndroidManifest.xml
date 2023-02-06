@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.com.erimedeiros.vakinha_burger">
    <application
-        android:label="vakinha_burger"
+        android:label="Só Saladas!"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

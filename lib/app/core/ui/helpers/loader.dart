@@ -9,7 +9,7 @@ mixin Loader<T extends StatefulWidget> on State<T> {
       showDialog(
           context: context,
           builder: (context) => LoadingAnimationWidget.threeArchedCircle(
-              color: Colors.white, size: 60));
+              color:  const Color(0xFFEDFFDE), size: 60));
     }
   }
 

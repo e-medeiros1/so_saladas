@@ -6,7 +6,6 @@ import 'package:vakinha_burger/app/core/extensions/formatter_extensions.dart';
 import 'package:vakinha_burger/app/core/ui/helpers/size_extensions.dart';
 import 'package:vakinha_burger/app/core/ui/styles/text_styles.dart';
 import 'package:vakinha_burger/app/dto/order_product_dto.dart';
-import 'package:vakinha_burger/app/pages/order/order_controller.dart';
 
 import '../home_controller.dart';
 
@@ -41,7 +40,7 @@ class DeliveryShoppingBag extends StatelessWidget {
       width: context.screenWidth,
       height: 80,
       decoration: const BoxDecoration(
-        color: Colors.white,
+        color: Color(0xFFEDFFDE),
         boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 5)],
         borderRadius: BorderRadius.only(
             topLeft: Radius.circular(10), topRight: Radius.circular(10)),

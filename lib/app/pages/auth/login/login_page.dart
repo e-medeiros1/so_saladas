@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vakinha_burger/app/core/ui/helpers/loader.dart';
 import 'package:vakinha_burger/app/core/ui/helpers/messages.dart';
+import 'package:vakinha_burger/app/core/ui/styles/colors_app.dart';
 import 'package:vakinha_burger/app/core/ui/styles/text_styles.dart';
 import 'package:vakinha_burger/app/core/ui/widgets/delivery_appbar.dart';
 import 'package:vakinha_burger/app/core/ui/widgets/delivery_button.dart';
@@ -23,7 +24,6 @@ class _LoginPageState extends BaseState<LoginPage, LoginController>
   final emailEC = TextEditingController();
   final passwordEC = TextEditingController();
   final _formKey = GlobalKey<FormState>();
-
   @override
   void dispose() {
     emailEC.dispose();
@@ -33,6 +33,7 @@ class _LoginPageState extends BaseState<LoginPage, LoginController>
 
   @override
   Widget build(BuildContext context) {
+    bool passwordVisibility = false;
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: BlocListener<LoginController, LoginState>(
@@ -70,8 +71,9 @@ class _LoginPageState extends BaseState<LoginPage, LoginController>
                         const SizedBox(height: 30),
                         TextFormField(
                           controller: emailEC,
-                          decoration:
-                              const InputDecoration(labelText: 'E-mail'),
+                          decoration: const InputDecoration(
+                            labelText: 'E-mail',
+                          ),
                           validator: Validatorless.multiple([
                             Validatorless.required('E-mail obrigatório'),
                             Validatorless.email('E-mail inválido'),
@@ -79,9 +81,24 @@ class _LoginPageState extends BaseState<LoginPage, LoginController>
                         ),
                         const SizedBox(height: 30),
                         TextFormField(
-                          obscureText: true,
+                          obscureText: !passwordVisibility,
                           controller: passwordEC,
-                          decoration: const InputDecoration(labelText: 'Senha'),
+                          decoration: InputDecoration(
+                            labelText: 'Senha',
+                            suffixIcon: GestureDetector(
+                              onTap: () {
+                                passwordVisibility = !passwordVisibility;
+                              },
+                              child: Icon(
+                                // ignore: unrelated_type_equality_checks
+                                passwordVisibility == true
+                                    ? Icons.visibility_off_outlined
+                                    : Icons.visibility_outlined,
+                                color: context.colors.primary,
+                                size: 18,
+                              ),
+                            ),
+                          ),
                           validator: Validatorless.multiple([
                             Validatorless.required('Senha obrigatória'),
                             Validatorless.min(6, 'Senha inválida'),
@@ -122,6 +139,7 @@ class _LoginPageState extends BaseState<LoginPage, LoginController>
                           child: Text(
                             'Cadastre-se',
                             style: context.textStyles.textBold
+                                .copyWith(decoration: TextDecoration.underline)
                                 .copyWith(color: Colors.blue),
                           )),
                     ],

@@ -13,11 +13,11 @@ class AppStyles {
   ButtonStyle get primaryButton => ElevatedButton.styleFrom(
         backgroundColor: ColorsApp.instance.primary,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(7),
+          borderRadius: BorderRadius.circular(25),
         ),
       );
 }
 
 extension AppStylesExtension on BuildContext {
-  AppStyles get appStyles => AppStyles.instance; 
+  AppStyles get appStyles => AppStyles.instance;
 }

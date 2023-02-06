@@ -9,32 +9,58 @@ class OrderCompletedPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SingleChildScrollView(
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+      body: ColoredBox(
+        color: const Color(0xFFEDFFDE),
+        child: Stack(
           children: [
-            SizedBox(height: context.percentHeight(.2)),
-            Image.asset('assets/images/logo_rounded.png'),
-            const SizedBox(height: 10),
-            Text(
-              'Pedido realizado com sucesso, aguarde a nossa confirmação e bom apetite!',
-              textAlign: TextAlign.center,
-              style: context.textStyles.textExtraBold.copyWith(fontSize: 18),
+            Align(
+              alignment: Alignment.center,
+              child: SizedBox(
+                width: context.screenWidth,
+                child: Image.asset(
+                  'assets/images/saladas-done.png',
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
-            const SizedBox(
-              height: 30,
-            ),
-            DeliveryButton(
-              width: context.percentWidth(.8),
-              label: 'FECHAR',
-              onPressed: () {
-                Navigator.pop(context);
-              },
+            Center(
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: context.percentHeight(.15),
+                  ),
+                  Image.asset('assets/images/logo.png',
+                      width: context.screenWidth,
+                      color: const Color(0xFF61d800)),
+                  SizedBox(
+                    height: context.percentHeight(.36),
+                  ),
+                  Text(
+                    'Pedido realizado com sucesso, aguarde a nossa confirmação e bom apetite!',
+                    textAlign: TextAlign.center,
+                    style:
+                        context.textStyles.textExtraBold.copyWith(fontSize: 18),
+                  ),
+                  Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: DeliveryButton(
+                        width: context.percentWidth(.8),
+                        label: 'FECHAR',
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                      )),
+                ],
+              ),
             )
           ],
         ),
       ),
-    ));
+    );
   }
 }
+
+
+
+//   }
+// }

@@ -27,8 +27,8 @@ class DeliveryIncrementDecrementButton extends StatelessWidget {
     return Container(
       padding: _compact ? const EdgeInsets.all(6) : null,
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey),
-        borderRadius: BorderRadius.circular(7),
+        border: Border.all(color: context.colors.primary),
+        borderRadius: BorderRadius.circular(25),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,

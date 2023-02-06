@@ -11,9 +11,9 @@ import 'package:vakinha_burger/app/pages/splash/splash_page.dart';
 import 'pages/auth/register/register_router.dart';
 import 'pages/order/order_router.dart';
 
-class VakinhaBurger extends StatelessWidget {
+class SoSaladas extends StatelessWidget {
   final _navKey = GlobalKey<NavigatorState>();
-  VakinhaBurger({super.key}) {
+  SoSaladas({super.key}) {
     GlobalContext.instance.navigatorKey = _navKey;
   }
 

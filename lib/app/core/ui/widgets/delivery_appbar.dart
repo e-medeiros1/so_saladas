@@ -6,6 +6,7 @@ class DeliveryAppbar extends AppBar {
             elevation: elevation,
             title: Image.asset(
               'assets/images/logo.png',
-              width: 80
+              width: 250,
+              color: const Color(0xFF61D800),
             ));
 }

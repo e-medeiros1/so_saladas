@@ -8,7 +8,7 @@ class ThemeConfig {
   ThemeConfig._();
 
   static final _defaultInputBorder = OutlineInputBorder(
-    borderRadius: BorderRadius.circular(7),
+    borderRadius: BorderRadius.circular(25),
     borderSide: BorderSide(color: Colors.grey.shade400),
   );
 
@@ -16,7 +16,7 @@ class ThemeConfig {
     fontFamily: 'mplus1',
     scaffoldBackgroundColor: Colors.white,
     appBarTheme: const AppBarTheme(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xFFEDFFDE),
       elevation: 0,
       centerTitle: true,
       iconTheme: IconThemeData(color: Colors.black),
@@ -33,7 +33,8 @@ class ThemeConfig {
       filled: true,
       isDense: true,
       contentPadding: const EdgeInsets.all(13),
-      labelStyle: TextStyles.instance.textRegular.copyWith(color: Colors.black),
+      labelStyle:
+          TextStyles.instance.textRegular.copyWith(color: Colors.black87),
       border: _defaultInputBorder,
       enabledBorder: _defaultInputBorder,
       focusedBorder: _defaultInputBorder,
