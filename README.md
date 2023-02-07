@@ -13,6 +13,9 @@
   Esse projeto foi desenvolvido na DartWeek dos dias 30 de janeiro ao dia 04 de fevereiro, uma semana intensa, com muito foco e apoio da comunidade da academia do flutter.
 </p>  
 
+<h3>Json rest server files</h3>
+https://github.com/e-medeiros1/so_saladas/files/10671319/json-server.zip
+
 ### Funcionalidades
 
 - [x] Splash screen
@@ -48,10 +51,15 @@
    - Vá para o VSCode com: 
    $ code .
    - Obtenha os packages:
-   $ flutter pub get  
+   $ flutter pub get
+   - Crie um servidor com json rest server a partir dos arquivos disponíveis na publicação
+   - Adicione um arquivo .env na raíz da aplicação com a seguinte configuração:  
+   backend_base_url=http://SEUIP:8080
    - Finalmente rode o app no dispositivo desejado:
    $ flutter run  
+   
    ```
+
 
 
 
